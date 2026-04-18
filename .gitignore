@@ -7,6 +7,8 @@ telegram_token.txt
 __pycache__/
 json/
 .idea/
+/utenti/json/*
+!/utenti/json/.gitkeep
 
 # Virtual Environment
 .venv/
