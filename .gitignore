@@ -1,0 +1,12 @@
+# Token del Bot
+fernet.key
+openai_key.txt
+telegram_token.txt
+
+# File di sistema e IDE
+__pycache__/
+json/
+.idea/
+
+# Virtual Environment
+.venv/

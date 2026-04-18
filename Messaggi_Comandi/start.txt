@@ -1,0 +1,21 @@
+# Lista di 10 link utili con descrizioni
+
+1. https://www.wikipedia.org/ - Wikipedia, l'enciclopedia libera e multilingue con milioni di voci su qualsiasi argomento.
+
+2. https://github.com/ - GitHub, la piattaforma di hosting per progetti software e sviluppo collaborativo tramite Git.
+
+3. https://www.coursera.org/ - Coursera offre corsi online da università e istituzioni di tutto il mondo su varie discipline.
+
+4. https://www.youtube.com/ - YouTube, la più grande piattaforma di condivisione video con contenuti per ogni interesse.
+
+5. https://www.google.com/maps/ - Google Maps per navigazione, mappe stradali, immagini satellitari e percorsi in tempo reale.
+
+6. https://stackoverflow.com/ - Stack Overflow, il sito di domande e risposte per programmatori e sviluppatori.
+
+7. https://www.ted.com/ - TED Talks, conferenze ispiranti su tecnologia, design, scienza e cultura.
+
+8. https://www.duolingo.com/ - Duolingo, piattaforma gratuita per imparare lingue straniere in modo divertente.
+
+9. https://archive.org/ - Internet Archive, una biblioteca digitale con milioni di libri, film, software e siti web storici.
+
+10. https://www.kaggle.com/ - Kaggle, comunità di data science con dataset, competizioni e tutorial su machine learning.
