@@ -32,16 +32,7 @@ pip install -r requirements.txt
 bashcd Sicurezza
 python generate_key.py
 4. Inserisci le tue API
-Apri il file encrypt_tokens.py e inserisci le tue API Telegram (quelle generate con BotFather), poi esegui:
+Apri il file encrypt_tokens.py e inserisci le tue API Telegram (quelle generate con BotFather), le tue API di OpenIA e poi esegui:
 bashpython encrypt_tokens.py
 5. Avvia il Bot
 bashpython Main.py
-
-📁 Struttura del progetto
-GestioneBot/
-├── Sicurezza/
-│   ├── generate_key.py
-│   └── encrypt_tokens.py
-├── Main.py
-└── requirements.txt
-    python Main.py
