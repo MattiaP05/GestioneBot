@@ -5,10 +5,11 @@ telegram_token.txt
 
 # File di sistema e IDE
 __pycache__/
-json/
 .idea/
-/utenti/json/*
-!/utenti/json/.gitkeep
 
 # Virtual Environment
 .venv/
+
+# Utenti
+utenti/json/*
+!utenti/json/.gitkeep

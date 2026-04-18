@@ -2,10 +2,14 @@
 
 Un bot Telegram intelligente che trasforma la tua chat in un'esperienza conversazionale avanzata. Grazie all'integrazione con le API di OpenAI, il bot non si limita a rispondere, ma interagisce in tempo reale con testo, immagini e messaggi vocali, offrendo risposte naturali e fluide.
 
+
+Tutte le chat vengono salvate nella cartella utenti/json/ tramite file JSON. Ogni file è nominato con l'ID dell'utente a cui appartiene la conversazione.
+
 ## Funzionalità
 - Conversazione Naturale
 - Trascrizione Vocale di Precisione
 - Interpretazione Multimodale
+- Salvataggio delle chat
 
 ## Come installarlo
 1. Clona il repository:
