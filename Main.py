@@ -36,7 +36,7 @@ def InizializzaUtente(user_id) -> None:
         utenti[user_id] = Utente(user_id)
 
 
-# === FUNZIONE /start. Passa i link iniziali===
+# === FUNZIONE /start. Passa i link iniziali. Questo è un comando d'esempio===
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     with open("Messaggi_Comandi/start.txt", "r") as start:
         messaggio = start.read()
@@ -50,7 +50,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Aggiunge il messaggio dell'utente alla cronologia
     utente.aggiungi_messaggio("user", messaggio)
 
-# === FUNZIONE RISPOSTA ===
+# === Handler per messaggi testuali ===
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = update.effective_user.id  # id del utente
     InizializzaUtente(user_id)
@@ -73,8 +73,8 @@ async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     try:
         vocale = Vocale(update, client, utente, context)
         risposta= await vocale.processa()
-        await update.message.reply_text("Hai detto: "+risposta[1])
-        await update.message.reply_text(risposta[0])
+        await update.message.reply_text("Hai detto: " + vocale.user_message)
+        await update.message.reply_text(risposta)
     except Exception as e:
         await update.message.reply_text("Problemi nel contattare il server, riprovare")
         print(f"Errore: {e}")

@@ -10,16 +10,14 @@ class Utente:
             with open(percorso + "dati" + str(self.user_id) + ".json", "w") as file:
                 json.dump([{"role": "system", "content": "Inizio la conversazione con " + str(
                     user_id) + ". Non ho scritto io questo messaggio, è di default"}], file, indent=4)
-            self.conversazione = self.load()
-        else:
-            self.conversazione = self.load()
+        self.conversazione = self.load()
 
     def aggiungi_messaggio(self, ruolo, contenuto) -> None:
         self.conversazione.append({"role": ruolo, "content": contenuto})
         self.stored()
 
     def get_storico(self) -> list:
-        return self.conversazione[-10:]  # ultimi 10 scambi
+        return self.conversazione[-10:]  # ultimi 10 messaggi
 
     def stored(self) -> None:
         with open(percorso + "dati" + str(self.user_id) + ".json", "w") as file:
@@ -39,5 +37,5 @@ class Utente:
                 else:
                     return False
         except FileNotFoundError:
-            # Se il file non esiste, lo consideriamo vuoto
+            # Se il file non esiste, lo considera vuoto
             return True

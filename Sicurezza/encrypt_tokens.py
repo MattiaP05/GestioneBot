@@ -6,9 +6,8 @@ with open("fernet.key", "rb") as key_file:
 
 fernet = Fernet(key)
 
-# Inserisci i tuoi dati reali qui
-telegram_token = "" #Inserire le proprie API Telegram
-openai_key = "" #inserire le proprie API di OpenIA
+telegram_token = "" #Inserire le proprie API Telegram tra gli apici
+openai_key = "" #inserire le proprie API di OpenIA tra gli apici
 
 # Cifra
 encrypted_telegram = fernet.encrypt(telegram_token.encode())

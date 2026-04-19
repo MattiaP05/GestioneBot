@@ -31,7 +31,7 @@ class Immagine(Messaggio):
             # Recupera la caption (testo scritto sotto l’immagine)
             caption = self.update.message.caption or "Cosa c'è in questa immagine?"
 
-            message = await self.createprompt("TI fornisco una nuova immagine")
+            message = self.utente.get_storico()
             message.append({  "role": "user",
             "content": [
                 {"type": "text", "text": caption},

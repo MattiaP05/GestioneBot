@@ -18,7 +18,7 @@ class Messaggio(ABC):
         self.update = update
         self.client = openai_client
         self.utente = utente
-        self.modelgpt = "gpt-4o" #LLM che si vuole usare di OpenIA
+        self.modelgpt = "gpt-5.4-nano" #Modello che si vuole usare di OpenIA
         self.context = context
 
     @abstractmethod
@@ -30,16 +30,15 @@ class Messaggio(ABC):
         messages += self.utente.get_storico()  # storico passato
 
         if (self.update.message.reply_to_message is not None):  # risposta ad un messaggio specifico
-            if(self.update.message.reply_to_message.voice is not None):
+            if(self.update.message.reply_to_message.voice is not None):#vocale
                 messages.append({"role": "system",
                                  "content": "Messaggio scritto in precedenza, l'utente si sta riferendo a questo nel messaggio sucessivo: " + await self.trascrivi(False)})
                 messages.append({"role": "user", "content": user_message})
-            elif(self.update.message.reply_to_message.text is not None):
+            elif(self.update.message.reply_to_message.text is not None):#Testo
                 messages.append({"role": "system",
                                  "content": "Messaggio scritto in precedenza, l'utente si sta riferendo a questo nel messaggio sucessivo: " + self.update.message.reply_to_message.text})
                 messages.append({"role": "user", "content": user_message})
             else:
-                messages.append({"role": "user", "content": "Ho commesso un ERRORE, NON RISPONDERE"})
                 raise ParametroEccezione("Contestualizzazione non supportata")
         else:
             messages.append({"role": "user", "content": user_message})  # nuovo input utente
@@ -57,7 +56,7 @@ class Messaggio(ABC):
 
         file = await self.context.bot.get_file(voice.file_id)
 
-        with tempfile.TemporaryDirectory() as tmpdir:
+        with tempfile.TemporaryDirectory() as tmpdir:#Crea i file temporanei per i vocali
             ogg_path = os.path.join(tmpdir, "audio.ogg")
             wav_path = os.path.join(tmpdir, "audio.wav")
             print(ogg_path)
@@ -66,9 +65,10 @@ class Messaggio(ABC):
             await file.download_to_drive(ogg_path)
 
             try:
-                # Converti .ogg in .wav con ffmpeg
+                # Conversione da .ogg a .wav con ffmpeg
                 ffmpeg.input(ogg_path).output(wav_path).run(quiet=True, overwrite_output=True, capture_stderr=True)
 
+                #Trascrizione del file audio
                 model = whisper.load_model("base", device="cuda" if torch.cuda.is_available() else "cpu")
                 transcript = model.transcribe(wav_path, fp16=False)#Imposta fp16=True se si possiete tanta VRAM
 
